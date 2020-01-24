@@ -8,9 +8,10 @@ namespace ejemplo
 
         public Team()
         {
+            // voy a agregar 3 miembros al equipo
+            miembros.Add(new Miembro());
             miembros.Add(new Miembro());
             miembros.Add(new Miembro());
         }
-
     }
 }
