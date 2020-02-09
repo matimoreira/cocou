@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using api.ejercicio.models;
+using api.ejercicio.DAO;
+using api.ejercicio.DAO.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.ejercicio.Controllers
@@ -11,40 +11,30 @@ namespace api.ejercicio.Controllers
     {
 
         [HttpGet]
-        public IEnumerable<Driver> Get()
+        public IEnumerable<DriverDTO> Get()
         {
-            var resultado = new List<Driver>();
-
-            var connectionString = "alguna connection string";
-            var connection = new SqlConnection(connectionString);
-            connection.Open();
-
-            var sql = "SELECT id, firstname, lastname, phone, email FROM driver";
-            var command = new SqlCommand(sql, connection);
-            var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                resultado.Add(
-                    new Driver
-                    {
-                        Id = reader.GetInt32(0),
-                        FirstName = reader.GetString(1),
-                        LastName = reader.GetString(2),
-                        Phone = reader.GetString(3),
-                        Email = reader.GetString(4)
-                    }
-                );
-            }
-
-            reader.Close();
-            connection.Close();
-            
-            return resultado;
+            var dao = new DriverDAO();
+            return dao.GetAll();
+        }
+        
+        [HttpPost]
+        public void Create(DriverDTO driver)
+        {
+            var dao = new DriverDAO();
+            dao.Save(driver);
         }
 
+        [HttpDelete]
+        public ActionResult Delete(DriverDTO driver)
+        {
+            var dao = new DriverDAO();
+            var PudoEliminarElregistro = dao.Delete(driver);
+
+            if (PudoEliminarElregistro)
+                return Ok();
+            else
+                return BadRequest("todo mal");
+        }
 
     }
-
-
 }

@@ -456,11 +456,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/augustocollado/Documents/COU/api.ejercicio/api.ejercicio.csproj",
+      "projectUniqueName": "/Users/augustocollado/Documents/COU/cocou/api.ejercicio.csproj",
       "projectName": "api.ejercicio",
-      "projectPath": "/Users/augustocollado/Documents/COU/api.ejercicio/api.ejercicio.csproj",
+      "projectPath": "/Users/augustocollado/Documents/COU/cocou/api.ejercicio.csproj",
       "packagesPath": "/Users/augustocollado/.nuget/packages/",
-      "outputPath": "/Users/augustocollado/Documents/COU/api.ejercicio/obj/",
+      "outputPath": "/Users/augustocollado/Documents/COU/cocou/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
